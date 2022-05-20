@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1> Password Generator</h1>
+
+        <div>
+            <textarea class="password" cols="" rows="1" placeholder="Generated Password Comes Here"></textarea>
+        </div>
+
+        <div>Number of characters <input class="characters_number" type="number" min="8" max="100" value="8"></div>
+
+        <div class="add_container">
+            <span class="add_title">Add:</span>
+            <div class="option">
+                Numbers
+                <span class="checkbox numbers" type="checkbox" checked="false">
+                    <span class="checkmark numbers"></span>
+                </span>
+            </div>
+            <div class="option">
+                Uppercase
+                <span class="checkbox uppercase" type="checkbox" checked="false">
+                    <span class="checkmark uppercase"></span>
+                </span>
+            </div>
+            <div class="option">
+                Lowercase
+                <span class="checkbox lowercase" type="checkbox" checked="false">
+                    <span class="checkmark lowercase"></span>
+                </span>
+            </div>
+            <div class="option">
+                Symbols
+                <span class="checkbox symbols" type="checkbox" checked="false">
+                    <span class="checkmark symbols"></span>
+                </span>
+            </div>
+        </div>
+
+        <div class="generate_container">
+            <button class="generate_button">Generate</button>
+        </div>
+    </div>
+
+    <script src="./assets/js/bundle.js"></script>
+</body>
+
+</html>

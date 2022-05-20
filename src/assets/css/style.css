@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --primary-color: blueviolet;
+    --gray-border-color: gray;
+    --border-color: rgb(112, 17, 167);
+}
+
+body {
+    background-color: var(--primary-color);
+    color: rgb(67, 0, 129);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+
+.container {
+    background-color: white;
+
+    width: fit-content;
+    margin: auto;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+
+.password {
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.characters_number {
+    width: 5rem;
+}
+
+.add_container {
+    width: fit-content;
+    margin: 1rem 0;
+}
+
+.add_container>div {
+    position: relative;
+}
+
+.add_container>div input {
+    position: relative;
+    transform: translateY(15%);
+}
+
+.add_title {
+    color: rgb(1, 14, 54);
+}
+
+.option {
+    display: flex;
+    gap: 5px;
+    line-height: 1.5rem;
+    align-items: center;
+}
+
+.characters_number,
+textarea {
+    padding: .1rem;
+    outline: none;
+    border: 1px solid var(--gray-border-color);
+    border-radius: .2rem;
+}
+
+.characters_number:focus,
+textarea:focus {
+    outline: none;
+    border: 1px solid var(--border-color);
+}
+
+.checkbox {
+    display: inline-block;
+    position: relative;
+
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid var(--gray-border-color);
+    border-radius: .2rem;
+}
+
+.checkbox:hover {
+    cursor: pointer;
+}
+
+
+.checkbox>.checkmark {
+    visibility: hidden;
+    display: inline-block;
+    position: absolute;
+
+    width: 6px;
+    height: 9px;
+
+    border: solid var(--primary-color);
+    border-width: 0 3px 3px 0;
+
+    transform: translate(70%, 15%) rotate(45grad);
+}
+
+.generate_container {
+    text-align: center;
+}
+
+.generate_button {
+    background-color: var(--primary-color);
+    color: white;
+
+    padding: .5rem;
+    border: none;
+    border-radius: .5rem;
+}
+
+.generate_button:hover {
+    cursor: pointer;
+    background-color: var(--border-color);
+    transform: scale(1.1);
+}
