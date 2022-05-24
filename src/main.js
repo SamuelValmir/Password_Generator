@@ -1,5 +1,4 @@
 "use strict";
-import { async } from "regenerator-runtime";
 import "./assets/css/style.css";
 import Form from "./modules/Form";
 
@@ -30,7 +29,7 @@ document.addEventListener("click", element => {
 
         let tooltipErrorElement = document.querySelector(".tooltipError");
         if (tooltipErrorElement.getAttribute("data-showing") === "true") {
-            fadeOut();
+            fadeOut(tooltipErrorElement);
             tooltipErrorElement.setAttribute("data-showing", "true");
         };
 
@@ -43,7 +42,7 @@ document.addEventListener("click", element => {
             target.setAttribute("checked", false);
             Form.unCheckCheckbox(target);
         };
-    }
+    };
 
     // It adds click listener in generate button
     if (target.classList.contains("generate_button")) {
@@ -54,10 +53,14 @@ document.addEventListener("click", element => {
 
         if (checkBoxCheckedList === undefined) {
             let tooltipErrorElement = document.querySelector(".tooltipError");
-            tooltipErrorElement.style.opacity = 1;
-            tooltipErrorElement.setAttribute("data-showing", "true");
+            fadeIn(tooltipErrorElement);
             return;
         }
+
+        let tooltipCopyElement = document.querySelector(".tooltip_copy");
+        fadeIn(tooltipCopyElement);
+        fadeOut(tooltipCopyElement, 500, 1000);
+
 
         let password = Form.generatePassword(charactersNumber, checkBoxCheckedList);
         passwordTextarea.value = password;
@@ -73,14 +76,17 @@ function resizePasswordContainer() {
     passwordElement.style.height = "auto";
     passwordElement.style.height = `${passwordElement.scrollHeight}px`;
     // scrollHeight = clientHeight (distance between top padding and bottom padding)
-}
+};
 
-function fadeOut() {
-    let tooltipErrorElement = document.querySelector(".tooltipError");
+function fadeIn(element) {
+    element.style.opacity = 1;
+    element.setAttribute("data-showing", "true");
+};
 
-    const animation = tooltipErrorElement.animate([
+function fadeOut(element, duration = 100, delay = 0) {
+    const animation = element.animate([
         { "opacity": 0 }
-    ], { duration: 100 });
+    ], { duration: duration, delay: delay});
 
-    animation.addEventListener("finish", () => { tooltipErrorElement.style.opacity = 0 })
+    animation.addEventListener("finish", () => { element.style.opacity = 0 })
 };
