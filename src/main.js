@@ -24,6 +24,9 @@ document.querySelector(".characters_number").addEventListener("focusout", charac
 document.addEventListener("click", element => {
     let target = element.target;
 
+    // Don't make nothing case clicks out of container
+    if(element.target.tagName === "HTML") return;
+
     // It adds click listener in checkbox
     if (target.classList.contains("checkbox") || target.parentElement.classList.contains("checkbox")) {
 

@@ -5,26 +5,36 @@
 }
 
 :root {
-    --primary-color: blueviolet;
-    --gray-border-color: gray;
-    --border-color: rgb(112, 17, 167);
+    --primary-color: rgb(138, 43, 226);
+    /*Highlight*/
+    --background-color: #f3f5f7;
+    --default-border-color: gray;
+    --highlight-border-color: rgb(112, 17, 167);
+}
+
+html {
+    height: 100vh;
 }
 
 body {
-    background-color: var(--primary-color);
-    color: rgb(67, 0, 129);
+    /* background-color: var(--primary-color); */
+    background-image: linear-gradient(to bottom right, blueviolet, rgb(83, 43, 226), rgb(43, 153, 226));
+    color: rgb(112, 17, 167);
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
 }
 
 .container {
     background-color: white;
+    background-color: var(--background-color);
 
     width: fit-content;
     margin: auto;
     margin-top: 3rem;
     padding: 1.5rem;
     border-radius: .5rem;
+
+    box-shadow: 4px 4px 10px rgb(62, 17, 167);
 }
 
 .password_container {
@@ -42,7 +52,7 @@ body {
 }
 
 .tooltip_copy {
-    background-color: rgba(0, 0, 0, .72);
+    background-color: rgba(92, 43, 226, 0.92);
     color: white;
     opacity: 0;
 
@@ -63,7 +73,7 @@ body {
     left: 50%;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-top: 5px solid rgba(0, 0, 0, .72);
+    border-top: 5px solid rgba(92, 43, 226, 0.92);
 
     transform: translateX(-50%);
 }
@@ -87,13 +97,14 @@ body {
 }
 
 .add_title {
-    color: rgb(1, 14, 54);
+    color: rgb(0, 68, 156);
+    /* rgb(43, 153, 226) */
 }
 
 .add_title .tooltipError {
     opacity: 0;
     font-size: small;
-    color: rgb(209, 35, 35);
+    color: rgb(255, 0, 85);
 }
 
 .option {
@@ -107,14 +118,14 @@ body {
 .password {
     padding: .1rem;
     outline: none;
-    border: 1px solid var(--gray-border-color);
+    border: 1px solid var(--default-border-color);
     border-radius: .2rem;
 }
 
 .characters_number:focus,
 .password:focus {
     outline: none;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--highlight-border-color);
 }
 
 .checkbox {
@@ -123,7 +134,7 @@ body {
 
     width: 1rem;
     height: 1rem;
-    border: 1px solid var(--gray-border-color);
+    border: 1px solid var(--default-border-color);
     border-radius: .2rem;
 }
 
@@ -161,6 +172,6 @@ body {
 
 .generate_button:hover {
     cursor: pointer;
-    background-color: var(--border-color);
+    background-color: rgb(112, 17, 167);
     transform: scale(1.1);
 }

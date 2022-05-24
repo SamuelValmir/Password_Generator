@@ -18,13 +18,13 @@ export default class Form {
     static checkCheckbox(checkbox) {
         let checkmark = checkbox.children[0];
         checkmark.style.visibility = "visible";
-        checkbox.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue("--border-color");
+        checkbox.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue("--highlight-border-color");
     };
 
     static unCheckCheckbox(checkbox) {
         let checkmark = checkbox.children[0];
         checkmark.style.visibility = "hidden";
-        checkbox.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue("--gray-border-color")
+        checkbox.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue("--default-border-color")
     };
 
     static generatePassword(passwordLength, checkBoxCheckedList) {
