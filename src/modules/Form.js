@@ -1,3 +1,5 @@
+import { LOWERCASE, NUMBERS, SYMBOLS, UPPERCASE } from "./constants";
+
 export default class Form {
     static validateCheckboxes(checkCheckboxList) {
         let checkBoxCheckedList = [];
@@ -6,11 +8,11 @@ export default class Form {
             if (element.getAttribute("checked") === "true") {
                 let checkboxType = element.classList[1];
                 checkBoxCheckedList.push(checkboxType);
-            }
+            };
         });
 
-        if(checkBoxCheckedList.length >= 1) return checkBoxCheckedList
-        return false;
+        if (checkBoxCheckedList.length >= 1) return checkBoxCheckedList
+        return undefined;
     };
 
     static checkCheckbox(checkbox) {
@@ -25,20 +27,42 @@ export default class Form {
         checkbox.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue("--gray-border-color")
     };
 
-    static generatePassword(charactersNumber, checkBoxCheckedList) {
-        let password = ["1", "2", "3"];
-        password.shuffle = shuffle;
-        // console.log(checkBoxCheckedList)
+    static generatePassword(passwordLength, checkBoxCheckedList) {
+        let password = [];
+        let passwordTypes = []; //? [numbers, uppercase, lowercase, symbols]
 
-        password.shuffle();
+        let passwordHasNumbers = checkBoxCheckedList.includes("numbers");
+        let passwordHasUppercase = checkBoxCheckedList.includes("uppercase");
+        let passwordHasLowercase = checkBoxCheckedList.includes("lowercase");
+        let passwordHasSymbols = checkBoxCheckedList.includes("symbols");
 
-        function shuffle(){                
-            for (let index = this.length - 1; index >= 0; index--) {
-                let randomPos = Math.floor(Math.random() * (index + 1));
-                [this[index], this[randomPos]] = [this[randomPos], this[index]];                
-            }
-        }
+        if (passwordHasNumbers) {
+            passwordTypes.push([...NUMBERS]);
+        };
+
+        if (passwordHasUppercase) {
+            passwordTypes.push([...UPPERCASE]);
+        };
+
+        if (passwordHasLowercase) {
+            passwordTypes.push([...LOWERCASE]);
+        };
+
+        if (passwordHasSymbols) {
+            passwordTypes.push([...SYMBOLS]);
+        };
+
+        for (let i = 0; i < passwordLength; i++) {
+            let randomPasswordTypeIndex = Math.floor(Math.random() * passwordTypes.length);
+            let randomPasswordType = passwordTypes[randomPasswordTypeIndex];
+            let randomCharacterIndex = Math.floor(Math.random() * randomPasswordType.length);
+            let randomCharacter = randomPasswordType[randomCharacterIndex];
+
+            password.push(randomCharacter);
+        };
+
+        password = password.join("");
 
         return password;
-    }
-}
+    };
+};

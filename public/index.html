@@ -13,13 +13,16 @@
         <h1> Password Generator</h1>
 
         <div>
-            <textarea class="password" cols="" rows="1" placeholder="Generated Password Comes Here"></textarea>
+            <textarea class="password" cols="" rows="1" placeholder="Generated Password Comes Here" contenteditable ></textarea>
         </div>
 
         <div>Number of characters <input class="characters_number" type="number" min="8" max="100" value="8"></div>
 
         <div class="add_container">
-            <span class="add_title">Add:</span>
+            <span class="add_title">Add:
+                <span class="tooltipError" data-showing="false"> You must select at least one option bellow!</span>
+            </span>
+
             <div class="option">
                 Numbers
                 <span class="checkbox numbers" type="checkbox" checked="false">

@@ -29,7 +29,11 @@ body {
 
 .password {
     width: 100%;
+    min-height: 20px;
+    height: auto;
     margin: 1rem 0;
+    resize: vertical;
+    overflow-y: hidden;
 }
 
 .characters_number {
@@ -54,6 +58,12 @@ body {
     color: rgb(1, 14, 54);
 }
 
+.add_title .tooltipError{
+    opacity: 0;
+    font-size: small;
+    color: rgb(209, 35, 35);
+}
+
 .option {
     display: flex;
     gap: 5px;
@@ -62,7 +72,7 @@ body {
 }
 
 .characters_number,
-textarea {
+.password {
     padding: .1rem;
     outline: none;
     border: 1px solid var(--gray-border-color);
@@ -70,7 +80,7 @@ textarea {
 }
 
 .characters_number:focus,
-textarea:focus {
+.password:focus {
     outline: none;
     border: 1px solid var(--border-color);
 }
