@@ -2,7 +2,7 @@
   "name": "password-generator",
   "version": "1.0.0",
   "description": "Exercise",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "dev": "webpack -w"
   },
